@@ -1,7 +1,8 @@
 function Text(){
+  const name: string = 'Victory'
   return(
     <>
-      <p>I'm Victory</p>
+      <p>I'm {name}</p>
     </>
   )
 }
