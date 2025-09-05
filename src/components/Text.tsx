@@ -1,7 +1,7 @@
 function Text(){
   return(
     <>
-      
+      <p>I'm Victory</p>
     </>
   )
 }
