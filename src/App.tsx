@@ -5,7 +5,8 @@ import Text from './components/Text'
 function App() {
    return (
     <>
-      
+      <Header />
+      <Text />
     </>
   )
 }
