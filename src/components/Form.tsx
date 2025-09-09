@@ -1,6 +1,10 @@
 import { useState } from "react";
 
 function Form(){
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('')
+    const [msg, setMsg] = useState<string>('');
+
     return(
         <>
             <form action="" className="flex flex-col w-fit p-2">
@@ -19,7 +23,7 @@ function Form(){
             </form>
 
             <div id="result">
-
+            
             </div>
         </>
     )
