@@ -1,38 +1,40 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
+
+interface formData{
+    name: string,
+    phone: number | null,
+    msg: string
+}
 
 function Form(){
     const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('')
+    const [phone, setPhone] = useState<number | null>(null);
     const [msg, setMsg] = useState<string>('');
-
-    const inputName = useRef<HTMLInputElement>(null);
-    const inputEmail = useRef<HTMLInputElement>(null);
-    const inputMsg = useRef<HTMLInputElement>(null);
-
-    function handleSubmit(): void{
-        const nameVal: string = inputName.current?.value ?? '';
-        const emailVal: string = inputEmail.current?.value ?? '';
-        const msgVal: string = inputMsg.current?.value ?? '';
-
-        setName(nameVal);
-        setEmail(emailVal);
-        setMsg(msgVal);
-    }
+    const [submittedData, setSubmittedData] = useState<formData | null>(null)
 
     return(
         <>
             <form action="" className="flex flex-col w-fit p-2" onSubmit={e => {
                 e.preventDefault();
-                handleSubmit();
+                setSubmittedData({name, phone, msg});
+                setName('');
+                setPhone(0);
+                setMsg('');
             }}>
                 <label htmlFor="name">Name:</label>
-                <input id='name' ref={inputName} type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" />
+                <input id='name' type="text" value={name} className="outline-0 p-1 bg-gray-300 mb-4 mt-2" onChange={(e) => {
+                    setName(e.target.value);
+                }}/>
 
-                <label htmlFor="email">Email:</label>
-                <input id='email' ref={inputEmail} type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" />
+                <label htmlFor="phone">phone:</label>
+                <input id='phone' value={phone ?? ''} type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" onChange={(e) => {
+                    setPhone(Number(e.target.value))
+                }}/>
 
                 <label htmlFor="message">Message:</label>
-                <input id='message' ref={inputMsg} type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" />
+                <input id='message' value={msg} type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" onChange={(e) => {
+                    setMsg(e.target.value)
+                }}/>
 
                 <button type='submit' className="bg-blue-700 px-4 py-2 w-fit text-white active:bg-purple-700">
                     Submit
@@ -40,15 +42,14 @@ function Form(){
             </form>
 
             {
-                    name && email && msg && (
+                    submittedData && (
                         <div id="result">
-                            <p>Name: {name}</p>
-                            <p>Email: {email}</p>
-                            <p>Message: {msg}</p>
+                            <p>Name: {submittedData.name}</p>
+                            <p>phone: {submittedData.phone}</p>
+                            <p>Message: {submittedData.msg}</p>
                         </div>
                     )
                 }
-
             
         </>
     )
