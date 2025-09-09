@@ -11,6 +11,10 @@ function Form(){
                 <label htmlFor="">Message:</label>
                 <input type="text" className="outline-0 p-1 bg-gray-300 mb-4 mt-2" />
             </form>
+
+            <div id="result">
+                
+            </div>
         </>
     )
 }
