@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Form(){
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('')
     const [msg, setMsg] = useState<string>('');
+
+    function handleSubmit(): void{
+
+    }
 
     return(
         <>
