@@ -10,6 +10,18 @@ function Greeting({name}: GreetingProps){
         <>
             <p>Hello {name}</p>
             <p> your count is {count}.</p>
+
+            <div>
+                <button>
+
+                </button>
+                <button>
+
+                </button>
+                <button>
+                    
+                </button>
+            </div>
         </>
     )
 }
