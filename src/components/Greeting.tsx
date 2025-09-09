@@ -13,13 +13,13 @@ function Greeting({name}: GreetingProps){
 
             <div>
                 <button>
-
+                    Add 1
                 </button>
                 <button>
-
+                    Add 2
                 </button>
                 <button>
-                    
+                    Add 3
                 </button>
             </div>
         </>
