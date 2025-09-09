@@ -11,7 +11,7 @@ function Greeting({name}: GreetingProps){
             <p>Hello {name}</p>
             <p> your count is {count}.</p>
 
-            <div>
+            <div className="my-4 flex gap-5">
                 <button className="bg-blue-600 px-4 py-2 rounded-full text-white active:bg-purple-700">
                     Add 1
                 </button>
