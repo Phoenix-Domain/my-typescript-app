@@ -5,9 +5,11 @@ interface GreetingProps{
 }
 
 function Greeting({name}: GreetingProps){
+    const [count, setCount] = useState<number>(0)
     return (
         <>
-            <p>{name}</p>
+            <p>Hello {name}</p>
+            <p> your count is {count}.</p>
         </>
     )
 }
