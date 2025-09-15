@@ -1,13 +1,12 @@
 interface ButtonProp{
     type: 'button' | 'submit' | 'reset',
     label: string,
-    style: string,
-    onClick?: () => void
+    style: string
 }
 
-function Button({type, label, style, onClick}: ButtonProp){
+function Button({type, label, style}: ButtonProp){
     return (
-        <button type={type} className={style} onClick={onClick}>
+        <button type={type} className={style}>
             {label}
         </button>
     )
