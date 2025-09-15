@@ -5,35 +5,41 @@ import { useState } from 'react';
 function App() {
   const [count, setCount] = useState<number>(0);
 
-  //Count functions
-  const addCount = (): void => setCount(prevVal => prevVal + 1);
-  const subtractCount = (): void => setCount(prevVal => prevVal - 1);
+  const addCount = (): void => setCount(prevValue => prevValue + 1);
+  const subtractCount = (): void => setCount(prevValue => prevValue - 1);
   const resetCount = (): void => setCount(0);
+  const invertCount = (): void => setCount(prevValue => prevValue * -1);
 
   return(
     <>
-
-      <p>Count is <span className='font-bold text-blue-800 text-xl'>{count}</span></p>
-
+      <p className='my-4 flex gap-2 items-center'>The Count is {count}</p>
+      
       <Button 
-        type='button'
         label='Add'
-        style='bg-[rgba(200,120,124,0.4)] px-4 py-2 mx-4 rounded-full font-bold'
+        type='button'
+        style='bg-purple-700 mx-4 px-4 py-2 rounded-full text-white'
         onClick={addCount}
       />
 
       <Button 
-        type='button'
         label='Subtract'
-        style='bg-[rgba(200,120,124,0.4)] px-4 py-2 mx-4 rounded-full font-bold'
+        type='button'
+        style='bg-purple-700 mx-4 px-4 py-2 rounded-full text-white'
         onClick={subtractCount}
       />
 
       <Button 
-        type='button'
         label='Reset'
-        style='bg-[rgba(200,120,124,0.4)] px-4 py-2 mx-4 rounded-full font-bold'
+        type='button'
+        style='bg-purple-700 mx-4 px-4 py-2 rounded-full text-white'
         onClick={resetCount}
+      />
+
+      <Button 
+        label='Invert'
+        type='button'
+        style='bg-purple-700 mx-4 px-4 py-2 rounded-full text-white'
+        onClick={invertCount}
       />
     </>
   )
