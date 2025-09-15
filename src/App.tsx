@@ -1,10 +1,14 @@
 import './App.css';
-import Form from './components/Form';
+import Button from './components/Buttons/Button';
 
 function App() {
    return (
     <>
-      <Form />
+      <Button 
+        type='button'
+        label='Click me'
+        style='bg-[rgba(0,0,0,0.9)] text-[rgb(255,245,238)] px-4 py-2 rounded-full m-auto my-5'
+      />
     </>
   )
 }
