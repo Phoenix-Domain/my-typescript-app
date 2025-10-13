@@ -1,7 +1,7 @@
 import './App.css';
 import Products from './components/Products';
 import Form from './components/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 interface Product{
     id: number;
     Product: string;
@@ -9,7 +9,14 @@ interface Product{
 }
 
 function App() {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<Product[]>(() => {
+        const saved = localStorage.getItem('products');
+        return saved ? JSON.parse(saved) : []
+    });
+
+    useEffect(() => {
+        localStorage.setItem('products', JSON.stringify(products));
+    }, [products])
 
  return(
     <>
