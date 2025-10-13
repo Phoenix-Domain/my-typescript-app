@@ -18,7 +18,7 @@ function App() {
         </h1>
        <Form setProducts={setProducts}/>
        {
-        products && (products.map((product, key) => <Products key={key} product={product.Product} type={product.Type} id={product.id} setProducts={setProducts}/>))
+        products.length <= 0 ?  <p>No products yet</p> : (products.map((product, key) => <Products key={key} product={product.Product} type={product.Type} id={product.id} setProducts={setProducts}/>)) 
        }
     </>
  )
