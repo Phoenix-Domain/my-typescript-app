@@ -1,6 +1,7 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 
 interface Product{
+    id: number;
     Product: string;
     Type: string;
 }
@@ -14,10 +15,16 @@ function Form({setProducts}: FormProps){
 
     const [productType, setProductType] = useState<string>('');
 
+    const getDateId = (): number => {
+        const id: number = Date.now();
+        return id
+    }
+
     const handleSubmit = (): void => {
         setProducts(prev => ([
             ...prev,
             {
+                id: getDateId(),
                 Product: productName,
                 Type: productType
             }
